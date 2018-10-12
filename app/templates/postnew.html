@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Submit New Post</h1>
+
+	<form action="" method="post">
+		{{ form.hidden_tag() }}
+		<p>
+			{{ form.title.label }}<br>
+			{{ form.title(size=32) }}<br>
+		</p>
+		<p>
+			{{ form.description.label }}<br>
+			{{ form.description(size=32) }}<br>
+		</p>
+		<p>
+			{{ form.in_progress() }} {{ form.in_progress.label }}
+		</p>
+		<p>
+			{{ form.need_help.label }}<br>
+			{{ form.need_help(size=32) }}<br>
+		</p>
+		<p>
+			{{ form.challenges.label }}<br>
+			{{ form.challenges(size=32) }}<br>
+		</p>
+		<p>
+			{{ form.learned.label }}<br>
+			{{ form.learned(size=32) }}<br>
+		</p>
+
+		<p>{{ form.submit() }}</p>
+	</form>
+
+{% endblock %}

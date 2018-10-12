@@ -1,6 +1,8 @@
 from datetime import datetime
 from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
+from app import login
 
 interest_identifier = db.Table('interest_identifier', db.Model.metadata,
 	db.Column('user_id', db.Integer, db.ForeignKey('users.user_id')),
@@ -46,4 +48,3 @@ class Interest(db.Model):
 	interest_id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(30), index=True, unique=True)
 	#users = db.relationship('User', secondary=interest_identifier)
-	#users = db.relationship('Interest', secondary=association_table)
