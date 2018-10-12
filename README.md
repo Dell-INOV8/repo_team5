@@ -1,6 +1,6 @@
 # SocialMediaPlatform
 
-go to /app/bin and type source activate
+go to /venv/bin and type source activate
 
 go to SocialMediaPlatform folder and type:
 
