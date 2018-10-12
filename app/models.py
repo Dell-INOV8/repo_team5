@@ -45,4 +45,5 @@ class Interest(db.Model):
 	__tablename__ = 'interests'
 	interest_id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(30), index=True, unique=True)
+	#users = db.relationship('User', secondary=interest_identifier)
 	#users = db.relationship('Interest', secondary=association_table)
