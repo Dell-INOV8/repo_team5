@@ -17,6 +17,7 @@ class User(db.Model):
 	password_hash = db.Column(db.String(128))
 	projects = db.relationship('Post', backref='author', lazy='dynamic')
 	interests = db.relationship('Interest', secondary=interest_identifier)
+	is_active = db.Column(db.Boolean)
 
 	def __repr__(self):
 		return '<User {}>'.format(self.username)
