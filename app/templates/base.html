@@ -1,0 +1,14 @@
+<html>
+	<head>
+		{% if title %}
+		<title>{{ title }} - Social Media Platform</title>
+		{% else %}
+		<title>Welcome to the Social Media Platform!</title>
+		{% endif %}
+	</head>
+	<body>
+		<div>Social Media Platform: <a href="/index">Home</a></div>
+		<hr>
+		{% block content %}{% endblock %}
+	</body>
+</html>
