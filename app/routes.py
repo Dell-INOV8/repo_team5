@@ -60,7 +60,7 @@ def postnew():
         # db.session.add(post)
         # db.session.commit()
         print('Author=', current_user)
-        print('title=', form.post.title)
+        print('title=', form.title)
         print('etc...')
         return redirect(url_for('explore'))
     return render_template('postnew.html', title='Submit New Post',
