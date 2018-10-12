@@ -9,9 +9,9 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <head>
        <style>
-#id {
-    display: inline-block;
-}
+            #id {
+                display: inline-block;
+            }
             .loginform{
                 text-align: center;
                 font-weight: bold;
@@ -19,6 +19,15 @@
             }
             h1 {
                 text-align: center;
+            }
+            .bbody {
+                padding-left: 60px;
+                padding-right: 60px;
+            }
+            form{
+            text-align: center;
+                font-weight: bold;
+                color: grey;
             }
         </style>
         {% if title %}
@@ -39,24 +48,32 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
                     </li>
+                    {% if not active %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                        <a class="nav-link" href="{{ url_for('login') }}">Login </a>
                     </li>
+                    {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('explore') }}">Explore</a>
+                        <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('postnew') }}">New Project Post</a>
                     </li>
                 </ul>
             </div>
         </nav>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
+        <div class="bbody">
+	        {% with messages = get_flashed_messages() %}
+	        {% if messages %}
+	        <ul>
+	            {% for message in messages %}
+	            <li>{{ message }}</li>
+	            {% endfor %}
+	        </ul>
+	        {% endif %}
+	        {% endwith %}
+    	</div>
         {% block content %}{% endblock %}
     </body>
 </html>

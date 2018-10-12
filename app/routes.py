@@ -3,7 +3,7 @@ from app import app
 from app.forms import LoginForm
 from flask import request
 from flask_login import current_user, login_user
-from app.models import User
+from app.models import User, Post
 from app import db
 from app.forms import LoginForm, ProjectPostForm, ExploreForm, RegistrationForm
 from flask_login import current_user, login_required, logout_user
@@ -47,21 +47,19 @@ def login():
 @app.route('/postnew', methods=['GET', 'POST'])
 def postnew():
     form = ProjectPostForm()
-    if form.validate():
-        # post = Post(
-        #     author=current_user,
-        #     title=form.post.title,
-        #     description=form.post.description,
-        #     learned=form.post.learned,
-        #     in_progress=form.post.in_progress,
-        #     need_help=form.post.need_help,
-        #     timestamp=form.post.timestamp
-        # )
-        # db.session.add(post)
-        # db.session.commit()
-        print('Author=', current_user)
-        print('title=', form.title)
-        print('etc...')
+    if form.validate_on_submit():
+        post = Post(
+            author=current_user,
+            title=form.title,
+            description=form.description,
+            learned=form.learned,
+            in_progress=form.in_progress,
+            challenges=form.challenges,
+            need_help=form.need_help,
+            timestamp=form.timestamp
+        )
+        db.session.add(post)
+        db.session.commit()
         return redirect(url_for('explore'))
     return render_template('postnew.html', title='Submit New Post',
         form=form)
