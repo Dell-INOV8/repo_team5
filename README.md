@@ -1,29 +1,4 @@
-# SocialMediaPlatform
+# Social Media Platform (Name TBD)
+To address the Dell Hack to Hire problem, we decided to address the question: How can we create a social media platform that fosters learning, growth, and collaboration?
 
-go to /venv/bin and type source activate
-
-go to SocialMediaPlatform folder and type:
-
-export FLASK_APP=socialMediaPlatform.py
-flask run
-
-and then copy/paste the url and you should be good to go!
-
-
-###Workflow
-<pre>
-  Update local repo
-    - git checkout master
-    - git pull origin master
-  Create working branch
-    - git checkout -b WORKING_BRANCH
-  Make changes on WORKING_BRANCH
-  Add and commit changes once satisfied
-    - git add /files/you/changed
-    - git commit -m "Message describing changes"
-  Push changes to master
-    - git checkout master
-    - git pull origin master
-    - git merge WORKING_BRANCH
-    - git push origin master
-</pre>
+The approach we took was to create a social media platform that allows individuals to post their completed and currently in-progress projects. They submit information about their project. There is a "What I Learned" section and a "Challenges" section for individuals to learn from others' mistakes.
