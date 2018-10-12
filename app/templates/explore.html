@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<form action="{{ url_for('postnew') }}">
+    	<input type="submit" value="Submit New Post" />
+	</form>
+
+	{% for post in posts %}
+
+	<div>
+		<p>
+			<h2>{{ post.title }}
+			{% if post.in_progress %} - In Progress {% else %} - Completed {% endif %}
+			</h2>
+			{{ post.timestamp }}
+			<h3>Description</h3>
+			{{ post.description}}
+			{% if post.in_progress %}
+				<h3>Need Help</h3>
+				{{ post.need_help }}
+			{% else %}
+				<h3>Challenges</h3>
+				{{ post.challenges }}
+				<h3>What I Learned</h3>
+				{{ post.learned }}
+			{% endif %}
+			<hr>
+
+		</p> 
+	</div>
+
+	{% endfor %}
+
+{% endblock %}
